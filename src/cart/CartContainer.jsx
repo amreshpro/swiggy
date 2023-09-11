@@ -1,33 +1,30 @@
-import { useEffect } from "react";
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import CartCard from "./CartCard";
 
 const CartContainer = () => {
 
-const cartList = useSelector((state)=>state.cart)
+const {cartList,totalPrice }= useSelector((state)=>state.cart)
 
-let totalPrice = 0;
 
-useEffect(()=>{
-  function countPrice(){
-    cartList.map((item)=>{
-      totalPrice += (+item.data.feeDetails.amount)
-    })
-  }
-  
-  countPrice()
-},[cartList])
+
+
+
+
+
 
 
   return (
     <div className="w-full text-center flex flex-col justify-center item-center mt-4 mb-4">
-<div className="container">
+<div className="container flex flex-col gap-4">
 
 {
   cartList?.map((item)=>{
+  
+
+
     return(
-      <CartCard key={item.id} {...item.data}/>
+      <CartCard key={item.id} {...item}/>
     )
   })
 }
@@ -36,12 +33,12 @@ useEffect(()=>{
 </div>
 <div className="total">
 
-<h1>Total: {totalPrice}</h1>
+<h1 className="text-xl">Total: {totalPrice}</h1>
 </div>
 
-<div className="checkout flex flex-col gap-2 justify-center px-2 w-full">
-  <Link to="/product" className="bg-orange-500 text-white px-2 py-2 rounded-lg  w-full">Checkout</Link>
-  <Link to="/product" className="text-orange-500  px-2 py-2 ">Continue Shopping</Link>
+<div className="checkout flex flex-col gap-2 justify-center items-center text-center px-2 w-full mt-2">
+  <Link to="/product" className="bg-orange-500 text-white px-2 py-2 rounded-lg w-fit">Checkout</Link>
+  <Link to="/product" className="text-orange-500  px-2 py-2 w-fit ">Continue Shopping</Link>
 
 </div>
     </div>

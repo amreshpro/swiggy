@@ -1,10 +1,19 @@
 import { BsFillStarFill }  from 'react-icons/bs'
 import { ITEM_IMG_CDN_URL } from '../constants/constant'
+import { useDispatch } from 'react-redux'
+import { add } from '../store/cartSlice'
 // eslint-disable-next-line react/prop-types
-const ProductCard = ({name,cloudinaryImageId,cuisines,avgRating} ) => {
-
-  // const {name,cloudinaryImageId,cuisines,avgRating,costForTwoString} = props
+const ProductCard = (props ) => {
+const dispatch = useDispatch()
+  // eslint-disable-next-line react/prop-types
+  const {name,cloudinaryImageId,cuisines,avgRating,costForTwoString} = props
   
+function addToCartHandler(){
+
+
+dispatch(add(props))
+}
+
   return (
     <div className="  w-64 h-max hover:scale-90">
 <div className="img">
@@ -20,7 +29,7 @@ const ProductCard = ({name,cloudinaryImageId,cuisines,avgRating} ) => {
 
 </div>
 
-
+<button onClick={()=>addToCartHandler()} className='bg-orange-500 text-white px-2 py-1 rounded-lg mt-1 text-center '>Add to cart</button>
 
     </div>
   )

@@ -20,14 +20,26 @@ e.preventDefault();
   const {  email, password } = loginDetail
   if (email && password) {
   
-    dispatch(isAuth(true))
+    // dispatch(isAuth(true))
  
 
   }
 
 
 }
-
+const guestLoginHandler = (e)=>{
+  e.preventDefault();
+    const {  email, password } = loginDetail
+    if (email && password) {
+    
+      dispatch(isAuth(true))
+   
+  
+    }
+  
+  
+  }
+  
 
 
   return (
@@ -99,7 +111,9 @@ e.preventDefault();
           </button>
         </div>
       </form>
-
+<div className="guest mt-4 text-center">
+  <button onClick={guestLoginHandler} className=" rounded-lg bg-orange-500 text-white px-2 py-2 text-md text-center">Login as Guest</button>
+</div>
       <p className="mt-10 text-center text-sm text-gray-500">
        Not a a member? 
         <Link to="/signup" className="font-semibold leading-6 text-orange-500 hover:text-orange-700">

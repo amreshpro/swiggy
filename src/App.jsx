@@ -4,6 +4,7 @@ import {LoginModal,Error,Footer,LandingPage,Navbar,SignupModal} from './componen
 import AuthWrapper  from './products/AuthWrapper'
 import Product from './products/Product'
 import CartContainer from "./cart/CartContainer"
+import DetailedProduct from "./products/DetailedProduct"
 
 
 
@@ -17,6 +18,7 @@ const App = () => {
   <Route path="/signup" element={<SignupModal/>}  />
   <Route path="/cart" element={<CartContainer/>}  />
   <Route path="/product" element={<><Navbar/> <AuthWrapper> <Product/> </AuthWrapper> </>}  />
+  <Route path="/product/:id" element={<><Navbar/> <AuthWrapper> <DetailedProduct/> </AuthWrapper> </>}  />
   <Route path="*" element={<Error/>}  />
 </Routes>
 <Footer/>
