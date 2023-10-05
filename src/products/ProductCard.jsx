@@ -2,6 +2,7 @@ import { BsFillStarFill }  from 'react-icons/bs'
 import { ITEM_IMG_CDN_URL } from '../constants/constant'
 import { useDispatch } from 'react-redux'
 import { add } from '../store/cartSlice'
+import { toast } from 'react-toastify'
 // eslint-disable-next-line react/prop-types
 const ProductCard = (props ) => {
 const dispatch = useDispatch()
@@ -12,6 +13,11 @@ function addToCartHandler(){
 
 
 dispatch(add(props))
+
+toast.success("Add to cart successfully",{
+  position: "bottom-right"
+})
+
 }
 
   return (

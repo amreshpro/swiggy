@@ -8,12 +8,6 @@ const {cartList,totalPrice }= useSelector((state)=>state.cart)
 
 
 
-
-
-
-
-
-
   return (
     <div className="w-full text-center flex flex-col justify-center item-center mt-4 mb-4">
 <div className="container flex flex-col gap-4">

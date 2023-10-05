@@ -10,37 +10,31 @@ const cartSlice = createSlice({
   reducers: {
     add(state, action) {
       state.cartList.push(action.payload);
-      state.totalPrice = countTotalPrice(state);
+      console.log(action.payload)
+      state.totalPrice = state.cartList?.reduce((totalPrice,item)=>{return totalPrice += +item?.feeDetails.amount},0)
       return state;
     },
 
     removeCartItem: (state, action) => {
       state.cartList.filter((item, index) => {
         if (item.id === action.payload) {
-            state.totalPrice =updateTotalPrice(state,item.feeDetails.totalFees);
           state.cartList.splice(index, 1);
+            state.totalPrice = state.cartList?.reduce((totalPrice,item)=>{return totalPrice += +item?.feeDetails.amount},0)
         }
       });
 
     
     },
+
+    clearCart:(state)=>{
+      state.cartList=[],
+      state.totalPrice=0
+    }
+
   },
 });
 
-export const { add, removeCartItem } = cartSlice.actions;
+export const { add, removeCartItem,clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
 
-function countTotalPrice(state) {
-  state.cartList.filter((item) => {
-    state.totalPrice += item.feeDetails.totalFees;
-  });
-return state.totalPrice;
-}
 
-function updateTotalPrice(state,removePrice) {
-
-if(state.totalPrice>0)
-      state.totalPrice = state.totalPrice - removePrice;
- 
-  return state.totalPrice;
-  }

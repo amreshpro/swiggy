@@ -27,15 +27,15 @@ e.preventDefault();
 
 
 }
+
 const guestLoginHandler = (e)=>{
   e.preventDefault();
-    const {  email, password } = loginDetail
-    if (email && password) {
+  
     
       dispatch(isAuth(true))
    
   
-    }
+    
   
   
   }
