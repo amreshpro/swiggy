@@ -42,7 +42,7 @@ const SearchBox = () => {
         if (e.key === "Enter" || e.which === 14) {
             let result = product.filter((item) => {
 
-                if (item?.data.cuisines.join('').toLowerCase().match(inputText)) return item
+                if (item?.data.cuisines.join('').toLowerCase().match(inputText.toLowerCase())) return item
 
             })
             console.log(inputText);
