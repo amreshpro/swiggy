@@ -1,12 +1,23 @@
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import CartCard from "./CartCard";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { Shimmer } from "../components";
 
 const CartContainer = () => {
+
+  const { data,isLoading} = useQuery(['fetch-data'],async()=>{
+    return await axios("https://swiggy-api.vercel.app/food")
+})
+
+console.log(data)
 
 const {cartList,totalPrice }= useSelector((state)=>state.cart)
 
 
+
+if(isLoading) return <Shimmer/>
 
   return (
     <div className="w-full text-center flex flex-col justify-center item-center mt-4 mb-4">

@@ -4,8 +4,10 @@ import { useDispatch } from 'react-redux'
 import { add } from '../store/cartSlice'
 
 
+
 // eslint-disable-next-line react/prop-types
-const DetailedProduct = (prop ) => {
+const DetailedProduct = (prop) => {
+
 const {name,cloudinaryImageId,cuisines,avgRating}=prop
 console.log(name)
    

@@ -1,30 +1,37 @@
+/* eslint-disable react/prop-types */
 import { BsFillStarFill }  from 'react-icons/bs'
 import { ITEM_IMG_CDN_URL } from '../constants/constant'
 import { useDispatch } from 'react-redux'
 import { add } from '../store/cartSlice'
 import { toast } from 'react-toastify'
-// eslint-disable-next-line react/prop-types
+
+
 const ProductCard = (props ) => {
+ 
+
 const dispatch = useDispatch()
-  // eslint-disable-next-line react/prop-types
-  const {name,cloudinaryImageId,cuisines,avgRating,costForTwoString} = props
+
+  
+  const {name,cloudinaryImageId,cuisines,avgRating,} = props
   
 function addToCartHandler(){
-
-
 dispatch(add(props))
-
 toast.success("Add to cart successfully",{
-  position: "bottom-right"
+  position: "bottom-right",
+  autoClose: 2500,
 })
 
 }
 
+
+
+
+
   return (
-    <div className="  w-64 h-max hover:scale-90">
-<div className="img">
+    <div  className="w-64 h-max hover:scale-90">
+<button  className="img" >
   <img src={ITEM_IMG_CDN_URL + cloudinaryImageId } alt={name} className="w-56 h-40 object-fill rounded-xl shadow-lg" />
-</div>
+</button>
 <div className="text flex flex-col justify-start gap-0.5 mt-1 ml-2">
   <h1 className='mt-0.5 text-gray-800 font-bold'>{name}</h1>
     <p className=" text-[15px] px-1 py-0.5 w-max h-max flex gap-2  "><BsFillStarFill className="mt-0.5 bg-green-700 p-1 text-xl text-white rounded-full" /> {avgRating}</p>
