@@ -27,20 +27,22 @@ const SearchBox = () => {
     };
 
     return (
-        <div className="flex justify-center flex-wrap  items-center mt-5 pt-5 xsm:gap-2 ">
-            <div className="inputBoxContainer  w-max ml-1 text-2xl border border-orange-400 outline-none  ">
-                <input
+      
+          <div className="flex justify-center">
+             <div className="search-box flex   m-4 outline outline-1 outline-orange-400">
+
+             <input
                     type="text"
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     onKeyUp={onKeyUpHandler}
                     autoFocus={true}
                     name="search"
-                    className="bg-white zsm:m-1 text-orange-500 placeholder-gray-400 h-full px-1 py-[5px] outline-none "
+                    className="bg-white zsm:m-1  text-orange-400 placeholder-gray-400 h-full px-1 py-[5px] outline-none "
                     placeholder="Search food online ..."
                 />
-            </div>
-            <div className="  w-max  text-2xl    ">
+        
+           
                 <button
                     type="submit"
                     onClick={handleSubmit}
@@ -48,8 +50,10 @@ const SearchBox = () => {
                 >
                     {<BiSearch className="text-white" />}{" "}
                 </button>
-            </div>
-        </div>
+             </div>
+          </div>
+              
+          
     );
 };
 export default SearchBox;
