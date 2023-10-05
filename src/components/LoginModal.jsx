@@ -20,7 +20,7 @@ e.preventDefault();
   const {  email, password } = loginDetail
   if (email && password) {
   
-    // dispatch(isAuth(true))
+    dispatch(isAuth(true))
  
 
   }

@@ -2,7 +2,7 @@ import { BsFillStarFill }  from 'react-icons/bs'
 
 const Shimmer = () => {
   return (
-    <div className='flex flex-wrap justify-center gap-4 '>
+    <div className='flex flex-wrap justify-center gap-4 mt-4 '>
 <ShimmerCard/>
 <ShimmerCard/>
 <ShimmerCard/>
