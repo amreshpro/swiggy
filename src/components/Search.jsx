@@ -24,7 +24,7 @@ const SearchBox = () => {
 
         let result = product.filter((item) => {
 
-            if (item?.data.cuisines.join('').toLowerCase().match(inputText)) return item
+            if (item?.data.cuisines.join('').toLowerCase().match(inputText.toLowerCase())) return item
 
         })
 
@@ -41,12 +41,15 @@ const SearchBox = () => {
     const onKeyUpHandler = (e) => {
         if (e.key === "Enter" || e.which === 14) {
             let result = product.filter((item) => {
-
-                if (item?.data.cuisines.join('').toLowerCase().match(inputText.toLowerCase())) return item
+                
+                if (
+                    item?.data.cuisines.join('').toLowerCase().match(inputText.toLowerCase())
+                    || item?.data.name.toLowerCase().match(inputText.toLowerCase())
+                    
+                    ) return item
 
             })
-            console.log(inputText);
-            console.log(result)
+          
             dispatch(findSearchData(result))
             emptyTheInputBox();
             navigate('/searched-product')

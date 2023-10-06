@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/product" element={<><Navbar /> <AuthWrapper> <Product /> </AuthWrapper> </>} />
           <Route path="/product/:id" element={<><Navbar /> <AuthWrapper> <DetailedProduct /> </AuthWrapper> </>} />
           <Route path="/detailed-product" element={<DetailedProduct />} />
-          <Route path="/searched-product" element={<><Navbar/><SearchedData /> </>} />
+          <Route path="/searched-product" element={<><Navbar/> <AuthWrapper><SearchedData /></AuthWrapper> </>} />
 
           <Route path="*" element={<Error />} />
         </Routes>
