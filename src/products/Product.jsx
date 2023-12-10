@@ -1,5 +1,5 @@
 import ProductCard from "./ProductCard";
-import { FilterBanner, HotBanner, Shimmer } from "../components";
+import {  HotBanner, Shimmer } from "../components";
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux"
@@ -22,7 +22,7 @@ if(isLoading) return <Shimmer/>
   return (
     <>
       <HotBanner />
-      <FilterBanner />
+      {/* <FilterBanner /> */}
      
         <div className="container">
           <h1 className="text-gray-800 mt-8 text-center text-2xl font-semibold my-8">

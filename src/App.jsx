@@ -13,7 +13,6 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginModal />} />
